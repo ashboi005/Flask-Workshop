@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <form action="/" method="POST">
+        <label for="name">Enter your name:</label>
+        <input type="text" id="name" name="name" placeholder="Your name">
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
