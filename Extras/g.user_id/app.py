@@ -1,39 +1,26 @@
-import supabase
-from flask import Flask, request, g
+from flask import Flask, g, session
 
 app = Flask(__name__)
 
-# Initialize Supabase client
-supabase_url = "https://your-supabase-url"
-supabase_key = "your-supabase-api-key"
-supabase_client = supabase.create_client(supabase_url, supabase_key)
+# Simulated user data
+users = {'1': 'Alice', '2': 'Bob'}
 
-
+# Before request handler to load user data into `g`
 @app.before_request
-def authenticate_user():
-    # Assume token is sent in the Authorization header
-    auth_header = request.headers.get('Authorization')
-    if auth_header:
-        token = auth_header.split(" ")[1]  # "Bearer <token>"
-
-        # Verify token with Supabase
-        user_info = supabase_client.auth.api.get_user(token)
-        if user_info:
-            g.user_id = user_info.id
-            g.email = user_info.email
-        else:
-            g.user_id = None
-    else:
-        g.user_id = None
-
+def load_user():
+    # Let's assume we are retrieving user_id from the session or a token
+    user_id = session.get('user_id')  # You might retrieve this from a session or authentication token
+    if user_id:
+        g.user_id = user_id  # Store it in `g`
+        g.user_name = users.get(user_id)  # Optionally store more data
 
 @app.route('/profile')
 def profile():
-    if hasattr(g, 'user_id') and g.user_id:
-        return f"User ID: {g.user_id}, Email: {g.email}"
+    # Access user_id and user_name from `g`
+    if hasattr(g, 'user_id'):
+        return f"User ID: {g.user_id}, User Name: {g.user_name}"
     else:
-        return "No user authenticated."
-
+        return "No user logged in."
 
 if __name__ == "__main__":
     app.run(debug=True)
