@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Stored Data</h2>
+    <ul>
+        {% for key, value in data_store.items() %}
+            <li>{{ key }}: {{ value }}
+                <a href="{{ url_for('delete_data', key=key) }}">(Delete)</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

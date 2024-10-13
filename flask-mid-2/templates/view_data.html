@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Your Details</h2>
+
+    {% if user_details %}
+        <ul>
+            <li><strong>Name:</strong> {{ user_details.name }}</li>
+            <li><strong>Email:</strong> {{ user_details.email }}</li>
+            <li><strong>Age:</strong> {{ user_details.age }}</li>
+            <li><strong>Hobbies:</strong> {{ user_details.hobbies | join(', ') }}</li>
+        </ul>
+    {% else %}
+        <p>No details found. Please enter your details.</p>
+    {% endif %}
+{% endblock %}

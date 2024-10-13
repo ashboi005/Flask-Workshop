@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Enter Your Details</h2>
+
+    <!-- Form to collect user details and hobbies -->
+    <form method="POST" action="/">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        <br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        <br><br>
+        <label for="age">Age:</label>
+        <input type="text" id="age" name="age" placeholder="Enter your age" required>
+        <br><br>
+
+        <!-- Hobbies selection -->
+        <label for="hobbies">Select your hobbies:</label><br>
+        {% for hobby in valid_hobbies %}
+            <input type="checkbox" id="{{ hobby }}" name="hobbies" value="{{ hobby }}">
+            <label for="{{ hobby }}">{{ hobby }}</label><br>
+        {% endfor %}
+
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+{% endblock %}

@@ -4,17 +4,17 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("register.html")
 
 # @app.route("/")
 # def index():
 #     name = request.args["name"]
-#     return render_template("index.html", name=name)
+#     return render_template("register.html", name=name)
 
 # @app.route("/")
 # def index():
 #     name = request.args.get("name", "World")
-#     return render_template("index.html", name=name)
+#     return render_template("register.html", name=name)
 
 if __name__ == "__main__":
     app.run(debug=True)
