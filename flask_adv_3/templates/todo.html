@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>To-Do List</h2>
+
+    <form method="POST">
+        <label>Task:</label>
+        <input type="text" name="task" required><br>
+        <label>Description (optional):</label>
+        <textarea name="description"></textarea><br>
+        <label>Deadline (optional):</label>
+        <input type="date" name="deadline"><br>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <ul>
+        {% for todo in todos %}
+            <li>
+                {{ todo.task }} - {{ todo.deadline }}
+                {% if not todo.completed %}
+                    <a href="{{ url_for('todo.complete', todo_id=todo.id) }}">[Complete]</a>
+                {% endif %}
+                <a href="{{ url_for('todo.edit', todo_id=todo.id) }}">[Edit]</a>
+                <form method="POST" action="{{ url_for('todo.delete', todo_id=todo.id) }}" style="display:inline;">
+                    <button type="submit">[Delete]</button>
+                </form>
+            </li>
+        {% else %}
+            <li>No tasks yet!</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

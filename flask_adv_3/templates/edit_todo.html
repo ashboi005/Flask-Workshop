@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Edit To-Do</h1>
+
+<form method="POST">
+    <label for="task">Task:</label>
+    <input type="text" id="task" name="task" value="{{ todo.task }}" required>
+
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" required>{{ todo.description }}</textarea>
+
+    <label for="deadline">Deadline:</label>
+    <input type="date" id="deadline" name="deadline" value="{{ todo.deadline }}" required>
+
+    <button type="submit">Save Changes</button>
+</form>
+
+<a href="{{ url_for('todo.todo_list') }}">Back to To-Do List</a>
+{% endblock %}
