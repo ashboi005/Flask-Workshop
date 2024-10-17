@@ -1,0 +1,9 @@
+first we use a form in html to get the name
+then ofc the parameters/args in the URL change to reflect the input
+using the action=/greet we call upon the greet() function which reads the args from the URL
+and then renders a greet.html and passes along the name
+THIS EXAMPLE USES THE GET METHOD, thus its wise only to use get method to get data since using it
+to post some data can result in leaked info thru the URL
+
+now in the second example we are combining both the functionalities into one route where we use POST to collect
+the data safely

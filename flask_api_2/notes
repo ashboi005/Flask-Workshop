@@ -1,0 +1,3 @@
+in this final directory we combine almost everything we learned so far
+going sessions to api calls to env variables to blueprints
+basically what your typical flask app looks like in the wild.

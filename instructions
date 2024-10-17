@@ -1,7 +1,6 @@
 python3 -m venv myenv  # Create virtual environment named 'myenv' (can be replaced with any other name)
 
-source myenv/bin/activate  # Activate the virtual environment (for linux) on windows we use "myenv\Scripts\activate"
+myenv\Scripts\activate  # Activate the virtual environment (for windows) on linux we use "source myenv/bin/activate"
 
-pip install flask
-
+pip install -r requirements.txt
 

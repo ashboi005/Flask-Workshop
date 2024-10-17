@@ -1,0 +1,40 @@
+Introduction to Flask
+
+
+What is Flask?
+Flask is a lightweight, micro web framework for Python.
+It's used to build web applications and APIs quickly.
+Unlike larger frameworks like Django, Flask doesn't require lots of components, making it easier to get started.
+
+How does Flask work?
+Flask works by routing URLs to specific Python functions.
+When you visit a URL, Flask matches that URL with one of the routes and runs the associated function.
+
+
+Basic Flask Syntax and Structure
+
+Files needed:
+app.py — This is where your Flask app's code lives.
+templates/ folder — HTML templates live here.
+static/ folder - CSS,JS and images live here.
+
+Basic Syntax:
+Flask: This imports Flask into your project.
+app = Flask(__name__): Initializes the Flask application. This is a basic setup.
+@app.route('/'): This is the route decorator that tells Flask which URL to respond to. In this case, it's the root /.
+index(): This function is run when you visit the / URL.
+render_template: It is used to send data to the HTML file in the templates folder.
+
+What is @app.route?
+
+Routing Basics:
+@app.route() is used to map a URL to a function.
+Inside the parentheses, you specify the URL. For example:
+@app.route('/'): This route is the home page.
+@app.route('/about'): This route is for the "about" page.
+
+Route Parameters:
+URLs can also accept parameters:
+Example: @app.route('/greet/<name>')
+In this case, name is a variable that will be passed to the function.
+def greet(name)

@@ -15,9 +15,7 @@ app.config['SECRET_KEY'] = os.urandom(24)
 db.init_app(app)
 
 #CORS (Cross-Origin Resource Sharing)
-#pip install flask-cors
 CORS(app, resources={r"/api/*": {"origins": "http://127.0.0.1:5500"}})
-
 
 
 # Create the database tables

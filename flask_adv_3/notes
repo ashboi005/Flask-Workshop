@@ -1,0 +1,6 @@
+in this directory we combine all we have learnt so far
+sessions
+database using sql
+
+and on top of that learn to do that using blueprints, how url_for differ for blueprints
+also password hashing using werkzeug

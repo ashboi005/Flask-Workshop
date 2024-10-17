@@ -1,7 +1,7 @@
 from flask import Flask
-from auth.auth_bp import auth_bp
-from todo.todo_bp import todo_bp
-from config import init_app, db
+from flask_adv_3.auth.auth_bp import auth_bp
+from flask_adv_3.todo.todo_bp import todo_bp
+from flask_adv_3.config import init_app, db
 
 app = Flask(__name__)
 

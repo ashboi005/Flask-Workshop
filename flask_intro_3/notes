@@ -1,0 +1,3 @@
+this directory introduces some concepts on Jinja2 template engine to you.
+- extending html layouts
+- if statements in html using jinga
